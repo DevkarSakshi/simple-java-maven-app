@@ -1,8 +1,8 @@
 pipeline {
     agent any
     tools {
-        jdk 'Java17'
-        maven 'Maven3'
+        jdk 'jdk17.0.2'    // EXACT name of your JDK in Jenkins
+        maven 'maven'      // replace with the exact Maven name in Jenkins Global Tool Configuration
     }
     stages {
         stage('Build') {
@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
+                // Ensure deliver.bat exists or remove this step if not needed
                 bat 'C:\\JenkinsProjects\\simple-java-maven-app\\jenkins\\scripts\\deliver.bat'
             }
         }
